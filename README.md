@@ -1,11 +1,11 @@
 **DEMOS:**
 
 1. ***Space Moving Background Animation:***  
-[demo](https://yassinefikri.github.io/jsanims_demos/index1.html){:target="_blank"} .  
+<a href="https://yassinefikri.github.io/jsanims_demos/index1.html" target="_blank">demo</a>
 js file to include on your web : "starsv3.js"
 
 2. ***Fireworks Background Animation:***  
-[demo](https://yassinefikri.github.io/jsanims_demos/index2.html){:target="_blank"} .  
+<a href="https://yassinefikri.github.io/jsanims_demos/index2.html" target="_blank">demo</a> 
 js file to include on your web : "fireworksv8.js"  
 
 **USAGE:**  
