@@ -30,13 +30,16 @@ var colors= new Array(nmis);
 for(var i=0;i<nmis;i++) colors[i]= getRandomColor(); 
 
 //Set Canvas Height & Width
+function size(){
+    cw= document.body.clientWidth; 
+    ch= window.innerHeight;
+    canvas.height=ch;
+    canvas.width=cw;
+}
 var canvas = document.querySelector("canvas");
-var wh=window.innerHeight;
-var ww=document.body.clientWidth;
-canvas.width= ww;
-canvas.height= wh;
 canvas.style.backgroundImage= bgcolor;
 var c= canvas.getContext("2d");
+size();
 
 //Particules
 function partc(){
@@ -46,8 +49,8 @@ function partc(){
         this.posy=posy;
         this.ray= parsize;
         this.col=col;
-        this.dx=(Math.random()-0.5)*Math.min(wh,ww)/70;
-        this.dy=(Math.random()-0.5)*Math.min(wh,ww)/70;
+        this.dx=(Math.random()-0.5)*Math.min(ch,cw)/70;
+        this.dy=(Math.random()-0.5)*Math.min(ch,cw)/70;
         this.grav=gravity;
     }
     this.draw= function(){
@@ -67,7 +70,7 @@ function partc(){
             this.posx+=this.dx;
             this.posy+=this.dy;
             this.dy+=this.grav;
-            this.grav+=0.008*wh/1080;
+            this.grav+=0.008*ch/1080;
             if(this.ray>0.1) this.ray-=0.015*parsize;
             this.draw();
         }
@@ -86,13 +89,13 @@ function mis(col,click){
     //Initialisation Firework
     this.init= function(){
         this.col="#ffffff";
-        this.posx= Math.random()*ww/2 + ww/4;
-        this.posy= wh-5;
+        this.posx= Math.random()*cw/2 + cw/4;
+        this.posy= ch-5;
         this.lastposx=this.posx;
         this.lastposy=this.posy;
-        this.dx= (Math.random()-0.5)*ww/800;
-        this.dy= wh/200;
-        this.maxy= Math.random()*wh/2+wh/4;
+        this.dx= (Math.random()-0.5)*cw/800;
+        this.dy= ch/200;
+        this.maxy= Math.random()*ch/2+ch/4;
         this.boom=0;
         this.rdm=Math.random();
         if(this.rdm>0.573 && this.rdm<0.58 && this.click==0) this.active=1;
@@ -157,35 +160,28 @@ function mis(col,click){
     }
 }
 
+
 //Creating Fireworks
 var miss= new Array(nmis);
 for(var i=0;i<nmis;i++){
     miss[i]=new mis(colors[i],0);
     miss[i].init();
 }
-//Creating Click Fireworks
-var clickmiss= new Array(3);
-for(var i=0;i<3;i++) clickmiss[i]= new mis(getRandomColor(),1);
-
 
 function animate(){
     requestAnimationFrame(animate);
-    c.clearRect(0,0,ww,wh);
+    c.clearRect(0,0,cw,ch);
     for(var i=0;i<nmis;i++){
         miss[i].update();
         for(var j=0;j<npar;j++) miss[i].partcs[j].update();
     }
-    for(var i=0;i<3;i++) clickmiss[i].update();
 }
 animate();
 
 //Canvas Resize on Winwdow Resize
 window.onresize = resize;
 function resize() {
-    ww= document.body.clientWidth; 
-    wh= window.innerHeight;
-    canvas.height=wh;
-    canvas.width=ww;
+    size();
     for(var i=0;i<nmis;i++) {
         miss[i].init();
     }

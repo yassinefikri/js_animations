@@ -9,15 +9,16 @@ var nstar= 300; // Set the Number of Stars , default [300]
 var backgroundcolor= "radial-gradient(#000000,#090c12)"; // Set Background Color default["radial-gradient(#000000,#090c12)"]
 var starsz = 0.045 // Set stars size increase , default [0.045]
 
+
+function size(){
+    cw= document.body.clientWidth; 
+    ch= window.innerHeight;
+    canvas.height=ch;
+    canvas.width=cw;
+}
 var canvas= document.querySelector("canvas");
-var ww= document.body.clientWidth; 
-var wh= window.innerHeight;
-
-//Setting Canvas Height & Width
-canvas.width= ww;
-canvas.height= wh;
-canvas.style.backgroundImage= backgroundcolor; 
-
+canvas.style.backgroundImage= backgroundcolor;
+size();
 var c= canvas.getContext("2d");
 
 function Star(){
@@ -27,8 +28,8 @@ function Star(){
         this.posy= posy; 
         this.ray= 0; //Rayon
         this.opc= Math.random(); //Opacity
-        this.dx= (this.posx-ww/2)/50;
-        this.dy= (this.posy-wh/2)/50;
+        this.dx= (this.posx-cw/2)/50;
+        this.dy= (this.posy-ch/2)/50;
         this.dr=starsz;
         if(Math.abs(this.dx)<3 && Math.abs(this.dy)<3){
             if(this.dx<0){
@@ -57,12 +58,12 @@ function Star(){
         if(this.ray>3) this.dr*=0.9;
         this.ray+=this.dr;
         this.draw();
-        if(this.posx-this.ray>ww || this.posx+this.ray<0) this.reset();
-        if(this.posy-this.ray>wh || this.posy+this.ray<0) this.reset();
+        if(this.posx-this.ray>cw || this.posx+this.ray<0) this.reset();
+        if(this.posy-this.ray>ch || this.posy+this.ray<0) this.reset();
     }
     this.reset= function(){
-        this.posx=ww/2;
-        this.posy=wh/2;
+        this.posx=cw/2;
+        this.posy=ch/2;
         this.ray=0;
         this.dr=starsz;
     }
@@ -72,12 +73,12 @@ function Star(){
 var stars = new Array(nstar);
 for(var i=0;i<nstar;i++){
     stars[i]= new Star();
-    stars[i].init(Math.random()*ww,Math.random()*wh);
+    stars[i].init(Math.random()*cw,Math.random()*ch);
 }
 
 function animate(){
     requestAnimationFrame(animate);
-    c.clearRect(0,0,ww,wh);
+    c.clearRect(0,0,cw,ch);
     for(var i=0;i<nstar;i++){
         stars[i].update();
     }
@@ -87,11 +88,8 @@ animate();
 //Resizing the Canvas when Resizing Window
 window.onresize = resize;
 function resize() {
-    ww= document.body.clientWidth; 
-    wh= window.innerHeight;
-    canvas.height=wh;
-    canvas.width=ww;
+    size();
     for(var i=0;i<nstar;i++) {
-        stars[i].init(Math.random()*ww,Math.random()*wh);
+        stars[i].init(Math.random()*cw,Math.random()*ch);
     }
 }
