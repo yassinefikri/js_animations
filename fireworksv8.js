@@ -31,7 +31,7 @@ for(var i=0;i<nmis;i++) colors[i]= getRandomColor();
 
 //Set Canvas Height & Width
 function size(){
-    cw= document.body.clientWidth; 
+    cw= window.innerWidth;
     ch= window.innerHeight;
     canvas.height=ch;
     canvas.width=cw;

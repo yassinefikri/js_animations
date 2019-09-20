@@ -11,7 +11,7 @@ var starsz = 0.045 // Set stars size increase , default [0.045]
 
 
 function size(){
-    cw= document.body.clientWidth; 
+    cw= window.innerWidth;
     ch= window.innerHeight;
     canvas.height=ch;
     canvas.width=cw;
