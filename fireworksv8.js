@@ -78,8 +78,7 @@ function partc(){
 }
 
 // Fireworks
-function mis(col,click){
-    this.click=click;
+function mis(col){
     //Initialisation of Particules for A Firework 
     this.partcs = new Array(npar);
     for(var i=0;i<npar;i++) {
@@ -98,10 +97,9 @@ function mis(col,click){
         this.maxy= Math.random()*ch/2+ch/4;
         this.boom=0;
         this.rdm=Math.random();
-        if(this.rdm>0.573 && this.rdm<0.58 && this.click==0) this.active=1;
+        if(this.rdm>0.573 && this.rdm<0.58) this.active=1;
         else this.active=0;
     }
-    this.initclick = function(click){this.click=click;}
     this.draw= function(){
         if(this.active==1){
             c.beginPath();
@@ -129,16 +127,15 @@ function mis(col,click){
                 }
                 else{
                     this.checkrdy();
-                    if(this.rdy==1 && this.click==0){
+                    if(this.rdy==1){
                         this.init();
                     } 
                 }
             }
         }
-        if(this.active==0 && this.click==0) this.init();
-        if(this.click==1 && this.active==1){
+        if(this.active==0) this.init();
+        if(this.active==1){
             this.checkrdy();
-            if(this.rdy==1) this.active=0;
         }
     }
     //Check if Particules ready
@@ -164,7 +161,7 @@ function mis(col,click){
 //Creating Fireworks
 var miss= new Array(nmis);
 for(var i=0;i<nmis;i++){
-    miss[i]=new mis(colors[i],0);
+    miss[i]=new mis(colors[i]);
     miss[i].init();
 }
 
