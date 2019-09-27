@@ -59,7 +59,7 @@ function Rain(){
     }
     this.boom=function(){
         c.beginPath();
-        c.ellipse(this.posx, this.posy+this.lng, this.r, this.r,0, 0, Math.PI*2);
+        c.ellipse(this.posx, this.posy+this.lng, this.r, 2*this.r/3,0, 0, Math.PI*2);
         c.strokeStyle="rgba(255,255,255,"+this.opa+")";
         c.stroke();
     }
