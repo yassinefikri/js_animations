@@ -7,7 +7,7 @@
 
 
 var bgcolor = "linear-gradient(180deg, rgba(0,0,0,1) 24%, rgba(33,30,48,1) 73%)"; //Background
-var nrain= 750; //Number of Rain Drops
+var nrain= 500; //Number of Rain Drops
 
 function size(){
     cw= document.body.clientWidth;
