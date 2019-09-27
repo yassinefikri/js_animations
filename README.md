@@ -8,6 +8,10 @@ js file to include on your web : "starsv3.js"
 <a href="https://yassinefikri.github.io/jsanims_demos/index2.html" target="_blank">demo</a>.   
 js file to include on your web : "fireworksv8.js"  
 
+3. ***Rain Background Animation:***  
+<a href="https://yassinefikri.github.io/jsanims_demos/index3.html" target="_blank">demo</a>.   
+js file to include on your web : "rainv3.js" 
+
 **USAGE:**  
   
 - add to your html ```<canvas></canvas>```  
