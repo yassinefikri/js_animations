@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------|
-|                       Fireworks Background Animation                         |
+|                         Rain Background Animation                            |
 |                           Author : Yassine Fikri                             |
 |               MIT license: http://opensource.org/licenses/MIT                |
 |          More Works : https://github.com/yassinefikri/js_animations          |
