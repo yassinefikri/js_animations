@@ -2,14 +2,17 @@
 
 1. ***Space Moving Background Animation:***  
 <a href="https://yassinefikri.github.io/jsanims_demos/index1.html" target="_blank">demo</a>.  
+<a href="https://codepen.io/yassinefikri/full/zYOyOby" target="_blank">CodePen demo</a>.   
 js file to include on your web : "starsv3.js"
 
 2. ***Fireworks Background Animation:***  
 <a href="https://yassinefikri.github.io/jsanims_demos/index2.html" target="_blank">demo</a>.   
+<a href="https://codepen.io/yassinefikri/full/GRKPRgN" target="_blank">CodePen demo</a>.  
 js file to include on your web : "fireworksv8.js"  
 
 3. ***Rain Background Animation:***  
 <a href="https://yassinefikri.github.io/jsanims_demos/index3.html" target="_blank">demo</a>.   
+<a href="https://codepen.io/yassinefikri/full/RwbmwJX" target="_blank">CodePen demo</a>.  
 js file to include on your web : "rainv3.js" 
 
 **USAGE:**  
