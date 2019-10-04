@@ -16,6 +16,7 @@ var dirg=1;
 var sposx=[];
 var sposy=[];
 var nstars=20;
+var timeSpeed=1;
 
 function size(){
     cw= document.body.clientWidth; 
@@ -120,16 +121,16 @@ function changeBackground(){
     bgcolor="linear-gradient(180deg, rgba(0,"+g+","+(50+2*g)+",1) 0%, rgba(0,"+g2+","+(50+2*g2)+",1) 100%)";
     canvas.style.background= bgcolor;
     if(incg==1){
-        g+=0.25;
+        g+=timeSpeed/4;
     }
     else if(incg==2){
-        g-=0.25;
+        g-=timeSpeed/4;
     }
     else if(incg==3){
-        g2-=0.25;
+        g2-=timeSpeed/4;
     }
     else{
-        g2+=0.25;
+        g2+=timeSpeed/4;
     }
     if(parseInt(g)==100){
         incg=2;
