@@ -45,11 +45,13 @@ function drawPay(){
     c.beginPath();
     c.fillStyle="rgba(0,"+(20+g/2)+",0,1)";
     c.fillRect(0,7*ch/8,cw,ch);
-    for(var i=0;i<nstars;i++){
-        c.beginPath();
-        c.ellipse(sposx[i],sposy[i],(100-g2)/100,(100-g2)/100,0,0,Math.PI*2,true);
-        c.fillStyle="white";
-        c.fill();
+    if(g2<100){
+        for(var i=0;i<nstars;i++){
+            c.beginPath();
+            c.ellipse(sposx[i],sposy[i],(100-g2)/100,(100-g2)/100,0,0,Math.PI*2,true);
+            c.fillStyle="white";
+            c.fill();
+        }
     }
 }
 
@@ -132,15 +134,15 @@ function changeBackground(){
     else{
         g2+=timeSpeed/4;
     }
-    if(parseInt(g)==100){
+    if(parseInt(g)>=100){
         incg=2;
         dirg=0;
     }
-    if(parseInt(g2)==0){
+    if(parseInt(g2)<=0){
         incg=0;
         dirg=1;
     }
-    if(parseInt(g)==0 || parseInt(g2)==100){
+    if(parseInt(g)<=0 || parseInt(g2)>=100){
         if(dirg==1){
             incg=1;
         }
