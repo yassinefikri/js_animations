@@ -17,28 +17,33 @@ var sposx=[];
 var sposy=[];
 var nstars=20;
 
+function size(){
+    cw= document.body.clientWidth; 
+    ch= window.innerHeight;
+    canvas.height=ch;
+    canvas.width=cw;
+}
 var canvas= document.querySelector("canvas");
-var ww= document.body.clientWidth; 
-var wh= window.innerHeight;
+size();
 
 for(var i=0;i<nstars;i++){
-    sposx.push(parseInt(Math.random()*ww));
-    sposy.push(parseInt(Math.random()*wh/3));
+    sposx.push(parseInt(Math.random()*cw));
+    sposy.push(parseInt(Math.random()*ch/3));
 }
 
 //Setting Canvas Height & Width
-canvas.width= ww;
-canvas.height= wh;
+canvas.width= cw;
+canvas.height= ch;
 canvas.style.background=bgcolor;
 
 var c= canvas.getContext("2d");
-windTurbine_length= Math.min(2*wh/5,300);
-countWindTurbines= parseInt(ww/(windTurbine_length*4/3));
+windTurbine_length= Math.min(2*ch/5,300);
+countWindTurbines= parseInt(cw/(windTurbine_length*4/3));
 
 function drawPay(){
     c.beginPath();
     c.fillStyle="rgba(0,"+(20+g/2)+",0,1)";
-    c.fillRect(0,7*wh/8,ww,wh);
+    c.fillRect(0,7*ch/8,cw,ch);
     for(var i=0;i<nstars;i++){
         c.beginPath();
         c.ellipse(sposx[i],sposy[i],(100-g2)/100,(100-g2)/100,0,0,Math.PI*2,true);
@@ -88,16 +93,16 @@ function WindTurbine(){
     this.draw= function(){
         c.beginPath();
         c.fillStyle= "rgba("+(150+g)+","+(150+g)+","+(150+g)+",1)";
-        c.fillRect(this.posx,7*wh/8-this.lng,5,this.lng);
+        c.fillRect(this.posx,7*ch/8-this.lng,5,this.lng);
         c.beginPath();
-        c.ellipse(this.posx+2.5,7*wh/8-this.lng,6,6,0,0,2*Math.PI,true);
+        c.ellipse(this.posx+2.5,7*ch/8-this.lng,6,6,0,0,2*Math.PI,true);
         c.fill();
         temp_ang=this.ang;
         for(var i=0;i<3;i++){
             c.beginPath();
-            c.moveTo(this.posx+2.5+Math.cos((temp_ang-37.5)*(Math.PI/180))*6,7*wh/8-this.lng+Math.sin((temp_ang-37.5)*(Math.PI/180))*6);
-            c.lineTo(this.posx+2.5+Math.cos((temp_ang+37.5)*(Math.PI/180))*6,7*wh/8-this.lng+Math.sin((temp_ang+37.5)*(Math.PI/180))*6);
-            c.lineTo(this.posx+2.5+Math.cos(temp_ang*(Math.PI/180))*this.lng/2,7*wh/8-this.lng+Math.sin(temp_ang*(Math.PI/180))*this.lng/2);
+            c.moveTo(this.posx+2.5+Math.cos((temp_ang-37.5)*(Math.PI/180))*6,7*ch/8-this.lng+Math.sin((temp_ang-37.5)*(Math.PI/180))*6);
+            c.lineTo(this.posx+2.5+Math.cos((temp_ang+37.5)*(Math.PI/180))*6,7*ch/8-this.lng+Math.sin((temp_ang+37.5)*(Math.PI/180))*6);
+            c.lineTo(this.posx+2.5+Math.cos(temp_ang*(Math.PI/180))*this.lng/2,7*ch/8-this.lng+Math.sin(temp_ang*(Math.PI/180))*this.lng/2);
             c.fill();
             temp_ang+=120;
         }
@@ -147,22 +152,22 @@ function changeBackground(){
 windTurbinesArr=[];
 for(var i=0;i<countWindTurbines;i++){
     windTurbinesArr.push(new WindTurbine());
-    windTurbinesArr[i].init((i+1)*ww/(countWindTurbines+1),windTurbine_length);
+    windTurbinesArr[i].init((i+1)*cw/(countWindTurbines+1),windTurbine_length);
 }
 grassArr= [];
 var grassCounter=0;
-for(var i=0;i<ww;i++){
+for(var i=0;i<cw;i++){
     grassArr.push(new Grass());
-    grassArr[grassCounter].init(i,7*wh/8);
+    grassArr[grassCounter].init(i,7*ch/8);
     grassCounter++;
     grassArr.push(new Grass());
-    grassArr[grassCounter].init(i,7*wh/8+grass_lng/2);
+    grassArr[grassCounter].init(i,7*ch/8+grass_lng/2);
     grassCounter++;
 }
 
 function animate(){
     requestAnimationFrame(animate);
-    c.clearRect(0,0,ww,wh);
+    c.clearRect(0,0,cw,ch);
     drawPay();
     for(var i=0;i<countWindTurbines;i++){
         windTurbinesArr[i].update();
@@ -179,24 +184,24 @@ function initCan(){
     sposx=[];
     sposy=[];
     for(var i=0;i<nstars;i++){
-        sposx.push(parseInt(Math.random()*ww));
-        sposy.push(parseInt(Math.random()*wh/3));
+        sposx.push(parseInt(Math.random()*cw));
+        sposy.push(parseInt(Math.random()*ch/3));
     }
-    windTurbine_length= Math.min(2*wh/5,300);
-    countWindTurbines= parseInt(ww/(windTurbine_length*4/3));
+    windTurbine_length= Math.min(2*ch/5,300);
+    countWindTurbines= parseInt(cw/(windTurbine_length*4/3));
     windTurbinesArr=[];
     for(var i=0;i<countWindTurbines;i++){
         windTurbinesArr.push(new WindTurbine());
-        windTurbinesArr[i].init((i+1)*ww/(countWindTurbines+1),windTurbine_length);
+        windTurbinesArr[i].init((i+1)*cw/(countWindTurbines+1),windTurbine_length);
     }
     grassArr= [];
     grassCounter=0;
-    for(var i=0;i<ww;i++){
+    for(var i=0;i<cw;i++){
         grassArr.push(new Grass());
-        grassArr[grassCounter].init(i,7*wh/8);
+        grassArr[grassCounter].init(i,7*ch/8);
         grassCounter++;
         grassArr.push(new Grass());
-        grassArr[grassCounter].init(i,7*wh/8+grass_lng/2);
+        grassArr[grassCounter].init(i,7*ch/8+grass_lng/2);
         grassCounter++;
     }
 }
@@ -204,9 +209,6 @@ function initCan(){
 //Resizing the Canvas when Resizing Window
 window.onresize = resize;
 function resize() {
-    ww= document.body.clientWidth; 
-    wh= window.innerHeight;
-    canvas.height=wh;
-    canvas.width=ww;
+    size();
     initCan();
 }
