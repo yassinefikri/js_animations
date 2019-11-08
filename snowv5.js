@@ -42,13 +42,12 @@ function inittab1(){
     whiteposy=[];
     whiteposx.push(0);
     whiteposy.push(7*wh/8);
-    for(var i=1;i<7;i++){
+    for(var i=1;i<8;i++){
         if(i%2==1) whiteposx.push(whiteposx[i-1]+((1+Math.random())*ww/16));
         else whiteposx.push(i*ww/8);
         whiteposy.push(whiteposy[i-1]+Math.random()*wh*ones[parseInt(Math.random()*2)]/100);
     }
-    whiteposx.push(ww);
-    whiteposy.push(7*wh/8);
+    whiteposx[7]=ww;
 }
 
 function inittabw(){
@@ -56,13 +55,12 @@ function inittabw(){
     wwhiteposy=[];
     wwhiteposx.push(0);
     wwhiteposy.push(15*wh/16);
-    for(var i=1;i<7;i++){
+    for(var i=1;i<8;i++){
         if(i%2==1) wwhiteposx.push(wwhiteposx[i-1]+((1+Math.random())*ww/16));
         else wwhiteposx.push(i*ww/8);
         wwhiteposy.push(wwhiteposy[i-1]+Math.random()*wh*ones[parseInt(Math.random()*2)]/100);
     }
-    wwhiteposx.push(ww);
-    wwhiteposy.push(7*wh/8);
+    wwhiteposx[7]=ww;
 }
 
 function initmonts(){
