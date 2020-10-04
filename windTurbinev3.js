@@ -24,22 +24,20 @@ function size(){
     canvas.height=ch;
     canvas.width=cw;
 }
+
+//Setting Canvas Height & Width
 var canvas= document.querySelector("canvas");
 canvas.style.width="100%";
 canvas.style.height="100%";
+canvas.style.background=bgcolor;
 size();
+var c= canvas.getContext("2d");
 
 for(var i=0;i<nstars;i++){
     sposx.push(parseInt(Math.random()*cw));
     sposy.push(parseInt(Math.random()*ch/3));
 }
 
-//Setting Canvas Height & Width
-canvas.width= cw;
-canvas.height= ch;
-canvas.style.background=bgcolor;
-
-var c= canvas.getContext("2d");
 windTurbine_length= Math.min(2*ch/5,300);
 countWindTurbines= parseInt(cw/(windTurbine_length*4/3));
 
