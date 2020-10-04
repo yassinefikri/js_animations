@@ -20,6 +20,7 @@ var canvas= document.querySelector("canvas");
 canvas.style.width="100%";
 canvas.style.height="100%";
 canvas.style.backgroundImage= backgroundcolor;
+canvas.parentElement.style.overflow="hidden";
 size();
 var c= canvas.getContext("2d");
 
