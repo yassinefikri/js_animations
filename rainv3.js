@@ -10,15 +10,17 @@ var bgcolor = "linear-gradient(180deg, rgba(0,0,0,1) 24%, rgba(33,30,48,1) 73%)"
 var nrain= 500; //Number of Rain Drops
 
 function size(){
-    cw= document.body.clientWidth;
-    ch= window.innerHeight;
+    cw= canvas.offsetWidth;
+    ch= canvas.offsetHeight;
     canvas.height=ch;
     canvas.width=cw;
 }
 var canvas = document.querySelector("canvas");
-var c= canvas.getContext("2d");
+canvas.style.width="100%";
+canvas.style.height="100%";
 canvas.style.backgroundImage= bgcolor;
 size();
+var c= canvas.getContext("2d");
 
 function Rain(){
     this.init= function(posx,posy){

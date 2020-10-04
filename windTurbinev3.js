@@ -19,12 +19,14 @@ var nstars=20;
 var timeSpeed=1;
 
 function size(){
-    cw= document.body.clientWidth; 
-    ch= window.innerHeight;
+    cw= canvas.offsetWidth; 
+    ch= canvas.offsetHeight;
     canvas.height=ch;
     canvas.width=cw;
 }
 var canvas= document.querySelector("canvas");
+canvas.style.width="100%";
+canvas.style.height="100%";
 size();
 
 for(var i=0;i<nstars;i++){

@@ -22,14 +22,16 @@ var nsnow=1000;
 var snowspeed=2;
 
 var canvas= document.querySelector("canvas");
-var c= canvas.getContext("2d");
+canvas.style.width="100%";
+canvas.style.height="100%";
 canvas.style.background=bgcolor;
 size();
+var c= canvas.getContext("2d");
 
 //Setting Canvas Height & Width
 function size(){
-    ww= document.body.clientWidth; 
-    wh= window.innerHeight;
+    ww= canvas.offsetWidth; 
+    wh= canvas.offsetHeight;
     canvas.height=wh;
     canvas.width=ww;
     mh=Math.min(wh/3,500);

@@ -29,17 +29,19 @@ var values= {
     }
     
     function size(){
-        ch=window.innerHeight;
-        cw=document.body.clientWidth;
+        ch=canvas.offsetHeight;
+        cw=canvas.offsetWidth;
         canvas.width= cw;
         canvas.height= ch;
     }
     
     //Set Canvas Height & Width
     var canvas = document.querySelector("canvas");
+    canvas.style.width="100%";
+    canvas.style.height="100%";
     canvas.style.backgroundImage= values.bgcolor;
-    var c= canvas.getContext("2d");
     size();
+    var c= canvas.getContext("2d");
     
     //Particules
     function partc(){
