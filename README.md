@@ -39,5 +39,5 @@ js file to include on your web : "snowv5.js"
   
 - add to your html ```<div id="canvas_container"><canvas></canvas><div>```
 - include the js animation file you want  
-- set the height & width you want in the canvas parent (canvas_container)
+- set the height & width you want to the canvas parent (canvas_container)
 - in case you have multiple canvas on your web , consider adding an id to the canvas you want and changing this selector ```var canvas= document.querySelector("canvas");``` to ```var canvas= document.getElementById("yourID");```
