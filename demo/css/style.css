@@ -46,9 +46,3 @@ body{
     filter: invert(100%);
     -webkit-filter: invert(100%);
 }
-.card{
-    width: 20rem;
-}
-.display-4{
-    font-size: 3rem;
-}
