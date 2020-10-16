@@ -41,6 +41,7 @@ for(var i=0;i<nstars;i++){
 
 windTurbine_length= Math.min(2*ch/5,300);
 countWindTurbines= parseInt(cw/(windTurbine_length*4/3));
+if(countWindTurbines===0) countWindTurbines=1;
 
 function drawPay(){
     c.beginPath();
@@ -193,6 +194,7 @@ function initCan(){
     }
     windTurbine_length= Math.min(2*ch/5,300);
     countWindTurbines= parseInt(cw/(windTurbine_length*4/3));
+    if(countWindTurbines===0) countWindTurbines=1;
     windTurbinesArr=[];
     for(var i=0;i<countWindTurbines;i++){
         windTurbinesArr.push(new WindTurbine());

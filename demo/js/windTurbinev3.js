@@ -50,10 +50,10 @@ for(var i=0;i<values.nstars;i++){
 
 values.windTurbine_length= Math.min(2*wh/5,300);
 countWindTurbines= parseInt(ww/(values.windTurbine_length*4/3));
+if(countWindTurbines===0) countWindTurbines=1;
 
 function drawPay(){
     c.beginPath();
-    //c.fillStyle="#003f00";
     c.fillStyle="rgba(0,"+(20+values.g/2)+",0,1)";
     c.fillRect(0,7*wh/8,ww,wh);
     if(values.g2<100){
@@ -78,7 +78,6 @@ function Grass(){
         c.beginPath();
         c.moveTo(this.posx,this.posy);
         c.lineTo(this.posx+this.dx,this.posy-values.grass_lng);
-        //c.strokeStyle="#003f00";
         c.strokeStyle="rgba(0,"+(20+values.g/2)+",0,1)";
         c.stroke();
     }
@@ -107,7 +106,6 @@ function WindTurbine(){
     }
     this.draw= function(){
         c.beginPath();
-        //c.fillStyle="#e6e6e6";
         c.fillStyle= "rgba("+(150+values.g)+","+(150+values.g)+","+(150+values.g)+",1)";
         c.fillRect(this.posx,7*wh/8-this.lng,5,this.lng);
         c.beginPath();
@@ -206,6 +204,7 @@ function initCan(){
     }
     values.windTurbine_length= Math.min(2*wh/5,300);
     countWindTurbines= parseInt(ww/(values.windTurbine_length*4/3));
+    if(countWindTurbines===0) countWindTurbines=1;
     windTurbinesArr=[];
     for(var i=0;i<countWindTurbines;i++){
         windTurbinesArr.push(new WindTurbine());
