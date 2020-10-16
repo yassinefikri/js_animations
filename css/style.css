@@ -1,0 +1,42 @@
+@font-face {
+    font-family: TxtF;
+    src: url(fonts/Balthazar-Regular/Balthazar-Regular.ttf);
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a,p{
+    text-decoration: none;
+    color: white;
+}
+.blacka{
+    color: black;
+}
+body{
+    overflow: hidden;
+}
+#canvas_container{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+.infos{
+    padding: 1% 0%;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    opacity: 1;
+    font-size: 30px;
+    font-family: TxtF;
+}
+.img{
+    height: 30px;
+    width: 30px;
+}
+.blackimg{
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
